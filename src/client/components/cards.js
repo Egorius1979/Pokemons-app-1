@@ -17,7 +17,9 @@ const Cards = () => {
     dispatch(getCards(typeSelected, subtypeSelected));
   }, [typeSelected, subtypeSelected, dispatch]);
 
-  window.scroll(0, 0);
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, [currentPage]);
 
   return (
     <main
