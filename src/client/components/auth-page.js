@@ -66,4 +66,4 @@ const Auth = () => {
   );
 };
 
-export default Auth;
+export default React.memo(Auth);

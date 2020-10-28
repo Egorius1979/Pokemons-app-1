@@ -18,6 +18,9 @@ ReactDOM.render(
           <Route exact path="/">
             <Redirect to="/cards/1" />
           </Route>
+          <Route exact path="/cards///:currentPage">
+            <Redirect to="/cards/1" />
+          </Route>
           <Route exact path="/login" component={Auth} />
           <Route exact path="/login/check" component={Check} />
           <Route exact path="/cards/:currentPage" component={Main} />

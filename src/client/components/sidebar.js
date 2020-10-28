@@ -25,9 +25,7 @@ const Sidebar = () => {
             : history.push(`/cards/${e.target.value}/1`);
         }}
       >
-        <option value="" disabled hidden>
-          Choose type
-        </option>
+        <option value="">Choose type</option>
         {types.map((it) => (
           <option value={it} key={it}>
             {it}
@@ -42,9 +40,7 @@ const Sidebar = () => {
           history.push(`/cards/${typeSelected || ""}/${e.target.value}/1`);
         }}
       >
-        <option value="" disabled hidden>
-          Choose subtype
-        </option>
+        <option value="">Choose subtype</option>
         {subtypes.map((it) => (
           <option value={it} key={it}>
             {it}
