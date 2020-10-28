@@ -13,7 +13,7 @@ import { Provider } from "react-redux";
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter basename="/pokemons-react-redux-app">
+      <BrowserRouter basename="/pokemons-app-1">
         <Switch>
           <Route exact path="/login" component={Auth} />
           <Route exact path="/login/check" component={Check} />

@@ -2,7 +2,7 @@
   "name": "pokemons-app-1",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://egorius1979.github.io/pokemons-react-redux-app",
+  "homepage": "http://egorius1979.github.io/pokemons-app-1",
   "dependencies": {
     "@reduxjs/toolkit": "^1.1.0",
     "@testing-library/jest-dom": "^4.2.4",
