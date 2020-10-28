@@ -11,7 +11,6 @@ const Cards = () => {
     pagesAmount,
     isInitialRequestDone,
   } = useSelector((s) => s.poke);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
