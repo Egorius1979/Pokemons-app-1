@@ -19,6 +19,7 @@ const Header = () => {
         type="button"
         onClick={() => {
           dispatch(setLoggedIn(false));
+          localStorage.removeItem("poke-token");
           history.push("/login");
         }}
       >
