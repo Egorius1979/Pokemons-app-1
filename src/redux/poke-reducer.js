@@ -15,6 +15,7 @@ const initialState = {
   pokemonCard: {},
   itemsPerPage: 12,
   pagesAmount: 0,
+  isInitialRequestDone: false,
 };
 
 export default (state = initialState, action) => {
@@ -22,7 +23,7 @@ export default (state = initialState, action) => {
     case SET_IS_LOGGED_IN:
       return { ...state, isLoggedIn: action.isloggedIn };
     case GET_CARDS:
-      return { ...state, cards: action.cards };
+      return { ...state, cards: action.cards, isInitialRequestDone: true };
     case SET_TYPES:
       return { ...state, types: action.types };
     case SET_SUBTYPES:

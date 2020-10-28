@@ -18,7 +18,7 @@ const Pagination = () => {
 
   useEffect(() => {
     dispatch(setPageAmount(pagesAmount));
-  }, [pagesAmount]);
+  }, [pagesAmount, dispatch]);
 
   return (
     pagesArray.length !== 1 && (
@@ -52,4 +52,4 @@ const Pagination = () => {
   );
 };
 
-export default Pagination;
+export default React.memo(Pagination);

@@ -11,7 +11,7 @@ const Sidebar = () => {
 
   useEffect(() => {
     dispatch(getFilters());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="left-sidebar">
@@ -55,4 +55,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default React.memo(Sidebar);

@@ -20,7 +20,7 @@ const PokemonCard = () => {
 
   useEffect(() => {
     dispatch(getPokemonCard(pokemonId));
-  }, [pokemonId]);
+  }, [pokemonId, dispatch]);
 
   return (
     <div className="container">

@@ -11,7 +11,7 @@ const PokemonCard = () => {
 
   useEffect(() => {
     dispatch(getPokemonCard(pokemonId));
-  }, [pokemonId]);
+  }, [pokemonId, dispatch]);
 
   if (!isLoggedIn && !localStorage.getItem("poke-token"))
     return <Redirect to="/login" />;

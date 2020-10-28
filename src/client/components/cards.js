@@ -5,12 +5,18 @@ import { getCards } from "../../redux/poke-reducer";
 
 const Cards = () => {
   const { typeSelected, subtypeSelected, currentPage } = useParams();
-  const { cards, itemsPerPage, pagesAmount } = useSelector((s) => s.poke);
+  const {
+    cards,
+    itemsPerPage,
+    pagesAmount,
+    isInitialRequestDone,
+  } = useSelector((s) => s.poke);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getCards(typeSelected, subtypeSelected));
-  }, [typeSelected, subtypeSelected]);
+  }, [typeSelected, subtypeSelected, dispatch]);
 
   window.scroll(0, 0);
 
@@ -39,11 +45,11 @@ const Cards = () => {
             </div>
           );
         })}
-      {currentPage && !cards.length && (
+      {isInitialRequestDone && !cards.length && (
         <p id="error">Неверный URL, либо нет таких покемонычей!</p>
       )}
     </main>
   );
 };
 
-export default Cards;
+export default React.memo(Cards);
