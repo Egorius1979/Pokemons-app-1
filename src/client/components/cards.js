@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link, useParams, Redirect } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getCards } from "../../redux/poke-reducer";
 
 const Cards = () => {
@@ -46,4 +46,4 @@ const Cards = () => {
   );
 };
 
-export default Cards;
+export default React.memo(Cards);
