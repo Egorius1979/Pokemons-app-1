@@ -54,4 +54,4 @@ const Check = () => {
   );
 };
 
-export default React.memo(Check);
+export default Check;

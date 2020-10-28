@@ -52,4 +52,4 @@ const Pagination = () => {
   );
 };
 
-export default React.memo(Pagination);
+export default Pagination;
