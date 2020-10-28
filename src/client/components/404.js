@@ -15,7 +15,7 @@ const NotFound = () => {
           type="button"
           tabIndex="0"
           onClick={() => {
-            history.push("/");
+            history.push("/cards/1");
           }}
         >
           {" "}
@@ -25,9 +25,5 @@ const NotFound = () => {
     </div>
   );
 };
-
-NotFound.propTypes = {};
-
-NotFound.defaultProps = {};
 
 export default NotFound;

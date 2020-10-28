@@ -427,3 +427,8 @@ hr {
 .link {
   display: inline-block;
 }
+
+#error {
+  color: #fff;
+  font-size: x-large;
+}

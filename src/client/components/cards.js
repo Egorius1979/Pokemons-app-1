@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, Redirect } from "react-router-dom";
 import { getCards } from "../../redux/poke-reducer";
 
 const Cards = () => {
@@ -39,6 +39,9 @@ const Cards = () => {
             </div>
           );
         })}
+      {currentPage && !cards.length && (
+        <p id="error">Неверный URL, либо нет таких покемонычей!</p>
+      )}
     </main>
   );
 };

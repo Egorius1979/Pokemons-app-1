@@ -15,6 +15,9 @@ ReactDOM.render(
     <Provider store={store}>
       <BrowserRouter>
         <Switch>
+          <Route exact path="/">
+            <Redirect to="/cards/1" />
+          </Route>
           <Route exact path="/login" component={Auth} />
           <Route exact path="/login/check" component={Check} />
           <Route exact path="/cards/:currentPage" component={Main} />
@@ -34,7 +37,6 @@ ReactDOM.render(
             component={Main}
           />
           <Route exact path="/pokemon/:pokemonId" component={PokemonCard} />
-          <Redirect from="/" to="/cards/1" />
           <Route component={() => <NotFound />} />
         </Switch>
       </BrowserRouter>
