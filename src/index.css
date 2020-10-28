@@ -365,7 +365,8 @@ hr {
 }
 
 @media (max-width: 500px) {
-  .container {
+  .container,
+  .card-content {
     padding: 0;
     margin: 0;
   }
@@ -374,11 +375,6 @@ hr {
   .main-content {
     flex-direction: column;
     align-items: center;
-  }
-
-  .card-content {
-    margin: 0;
-    height: 100vh;
   }
 
   .main-content {
@@ -421,6 +417,10 @@ hr {
     display: flex;
     justify-content: center;
     margin-left: 0;
+  }
+
+  .pokemon-properties {
+    align-items: center;
   }
 }
 
