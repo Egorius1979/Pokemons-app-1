@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { getFilters } from "../../redux/poke-reducer";
+import { getFilters, setLoadingStatus } from "../../redux/poke-reducer";
 
 const Sidebar = () => {
   const { typeSelected, subtypeSelected } = useParams();
@@ -20,6 +20,7 @@ const Sidebar = () => {
         id="card-type"
         value={typeSelected ? typeSelected.toLowerCase() : ""}
         onChange={(e) => {
+          dispatch(setLoadingStatus());
           subtypeSelected
             ? history.push(`/cards/${e.target.value}/${subtypeSelected}/1`)
             : history.push(`/cards/${e.target.value}/1`);
@@ -39,6 +40,7 @@ const Sidebar = () => {
         id="card-subtype"
         value={subtypeSelected ? subtypeSelected.toLowerCase() : ""}
         onChange={(e) => {
+          dispatch(setLoadingStatus());
           history.push(`/cards/${typeSelected || ""}/${e.target.value}/1`);
         }}
       >

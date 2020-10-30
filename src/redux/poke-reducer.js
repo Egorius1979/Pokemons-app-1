@@ -6,6 +6,7 @@ const SET_TYPES = "GET_TYPES";
 const SET_SUBTYPES = "GET_SUBTYPES";
 const GET_POKEMON_CARD = "GET_POKEMON_CARD";
 const SET_PAGES_AMOUNT = "SET_PAGES_AMOUNT";
+const SET_LOADING_STATUS = "SET_LOADING_STATUS";
 
 const initialState = {
   isLoggedIn: false,
@@ -16,6 +17,7 @@ const initialState = {
   itemsPerPage: 12,
   pagesAmount: 0,
   isInitialRequestDone: false,
+  isLoading: false,
 };
 
 export default (state = initialState, action) => {
@@ -23,7 +25,12 @@ export default (state = initialState, action) => {
     case SET_IS_LOGGED_IN:
       return { ...state, isLoggedIn: action.isloggedIn };
     case GET_CARDS:
-      return { ...state, cards: action.cards, isInitialRequestDone: true };
+      return {
+        ...state,
+        cards: action.cards,
+        isInitialRequestDone: true,
+        isLoading: false,
+      };
     case SET_TYPES:
       return { ...state, types: action.types };
     case SET_SUBTYPES:
@@ -32,6 +39,8 @@ export default (state = initialState, action) => {
       return { ...state, pokemonCard: action.card };
     case SET_PAGES_AMOUNT:
       return { ...state, pagesAmount: action.value };
+    case SET_LOADING_STATUS:
+      return { ...state, isLoading: action.value };
 
     default:
       return state;
@@ -77,4 +86,8 @@ export function getPokemonCard(pokemonId) {
 
 export function setPageAmount(value) {
   return { type: SET_PAGES_AMOUNT, value };
+}
+
+export function setLoadingStatus() {
+  return { type: SET_LOADING_STATUS, value: true };
 }

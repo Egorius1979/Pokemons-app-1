@@ -10,6 +10,7 @@ const Cards = () => {
     itemsPerPage,
     pagesAmount,
     isInitialRequestDone,
+    isLoading,
   } = useSelector((s) => s.poke);
   const dispatch = useDispatch();
 
@@ -37,13 +38,15 @@ const Cards = () => {
         )
         .map((it) => {
           return (
-            <div key={it.id} className="pokemon-card">
-              <Link to={`/pokemon/${it.id}`}>
-                <img src={it.imageUrl} alt={it.name} className="cards-img" />
-              </Link>
-              <h3 className="names">{it.name}</h3>
-              <p className="names">{it.artist}</p>
-            </div>
+            !isLoading && (
+              <div key={it.id} className="pokemon-card">
+                <Link to={`/pokemon/${it.id}`}>
+                  <img src={it.imageUrl} alt={it.name} className="cards-img" />
+                </Link>
+                <h3 className="names">{it.name}</h3>
+                <p className="names">{it.artist}</p>
+              </div>
+            )
           );
         })}
       {isInitialRequestDone && !cards.length && (
