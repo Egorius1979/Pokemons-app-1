@@ -1,5 +1,5 @@
-import { configureStore } from "@reduxjs/toolkit";
-import pokeReducer from "./poke-reducer";
+import { configureStore } from '@reduxjs/toolkit';
+import pokeReducer from './poke-reducer';
 
 export default configureStore({
   reducer: {

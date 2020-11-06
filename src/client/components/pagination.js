@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
-import { setPageAmount } from "../../redux/poke-reducer";
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useHistory, useParams } from 'react-router-dom';
+import { setPageAmount } from '../../redux/poke-reducer';
 
 const Pagination = () => {
   const { typeSelected, subtypeSelected, currentPage } = useParams();
@@ -21,14 +21,14 @@ const Pagination = () => {
   }, [pagesAmount, dispatch]);
 
   return (
-    pagesArray.length !== 1 && (
-      <div className="pagination">
+    pagesArray.length > 1 && (
+      <div className='pagination'>
         {pagesArray.map((it, index) => (
           <button
-            type="button"
-            disabled={+currentPage === it ? true : false}
+            type='button'
+            disabled={+currentPage === it}
             key={index}
-            className="pagination-btn"
+            className='pagination-btn'
             onClick={() => {
               if (!typeSelected && !subtypeSelected) {
                 history.push(`/cards/${it}`);

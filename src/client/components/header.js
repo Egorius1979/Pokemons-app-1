@@ -1,7 +1,7 @@
-import React from "react";
-import { useParams, useHistory } from "react-router-dom";
-import { setLoggedIn } from "../../redux/poke-reducer";
-import { useDispatch } from "react-redux";
+import React from 'react';
+import { useParams, useHistory } from 'react-router-dom';
+import { setLoggedIn } from '../../redux/poke-reducer';
+import { useDispatch } from 'react-redux';
 
 const Header = () => {
   const { pokemonId } = useParams();
@@ -10,17 +10,17 @@ const Header = () => {
 
   return (
     <header>
-      <div className={!pokemonId ? "back-invisible" : ""}>
-        <button type="button" onClick={() => history.goBack()}>
+      <div className={!pokemonId ? 'back-invisible' : ''}>
+        <button type='button' onClick={() => history.goBack()}>
           BACK
         </button>
       </div>
       <button
-        type="button"
+        type='button'
         onClick={() => {
           dispatch(setLoggedIn(false));
-          localStorage.removeItem("poke-token");
-          history.push("/login");
+          localStorage.removeItem('poke-token');
+          history.push('/login');
         }}
       >
         LOGOUT

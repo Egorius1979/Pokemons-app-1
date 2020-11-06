@@ -1,12 +1,12 @@
-import axios from "axios";
+import axios from 'axios';
 
-const SET_IS_LOGGED_IN = "SET_IS_LOGGED_IN";
-const GET_CARDS = "GET_CARDS";
-const SET_TYPES = "GET_TYPES";
-const SET_SUBTYPES = "GET_SUBTYPES";
-const GET_POKEMON_CARD = "GET_POKEMON_CARD";
-const SET_PAGES_AMOUNT = "SET_PAGES_AMOUNT";
-const SET_LOADING_STATUS = "SET_LOADING_STATUS";
+const SET_IS_LOGGED_IN = 'SET_IS_LOGGED_IN';
+const GET_CARDS = 'GET_CARDS';
+const SET_TYPES = 'GET_TYPES';
+const SET_SUBTYPES = 'GET_SUBTYPES';
+const GET_POKEMON_CARD = 'GET_POKEMON_CARD';
+const SET_PAGES_AMOUNT = 'SET_PAGES_AMOUNT';
+const SET_LOADING_STATUS = 'SET_LOADING_STATUS';
 
 const initialState = {
   isLoggedIn: false,
@@ -51,23 +51,23 @@ export function setLoggedIn(isloggedIn) {
   return { type: SET_IS_LOGGED_IN, isloggedIn };
 }
 
-export function getCards(typeSelected = "", subtypeSelected = "") {
+export function getCards(typeSelected = '', subtypeSelected = '') {
   return (dispatch) => {
-    axios(
-      `https://api.pokemontcg.io/v1/cards?types=${typeSelected}&subtype=${subtypeSelected}`
-    ).then((res) => dispatch({ type: GET_CARDS, cards: res.data.cards }));
+    axios(`https://api.pokemontcg.io/v1/cards?types=${typeSelected}&subtype=${subtypeSelected}`).then((res) =>
+      dispatch({ type: GET_CARDS, cards: res.data.cards })
+    );
   };
 }
 
 export function getFilters() {
   return (dispatch) => {
-    axios("https://api.pokemontcg.io/v1/types").then((res) =>
+    axios('https://api.pokemontcg.io/v1/types').then((res) =>
       dispatch({
         type: SET_TYPES,
         types: res.data.types.map((it) => it.toLowerCase()).sort(),
       })
     );
-    axios("https://api.pokemontcg.io/v1/subtypes").then((res) =>
+    axios('https://api.pokemontcg.io/v1/subtypes').then((res) =>
       dispatch({
         type: SET_SUBTYPES,
         subtypes: res.data.subtypes.map((it) => it.toLowerCase()).sort(),
