@@ -9,7 +9,7 @@ const SET_PAGES_AMOUNT = 'SET_PAGES_AMOUNT';
 const SET_LOADING_STATUS = 'SET_LOADING_STATUS';
 
 const initialState = {
-  isLoggedIn: false,
+  isLoggedIn: true,
   cards: [],
   types: [],
   subtypes: [],

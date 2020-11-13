@@ -222,7 +222,7 @@ select:hover {
 }
 
 .pokemon-img {
-  width: 30%;
+  width: 35%;
   margin: 5%;
   box-shadow: 10px 9px 10px #000;
 }
@@ -237,11 +237,9 @@ select:hover {
 }
 
 .pokemon-properties {
-  display: flex;
-  flex-direction: column;
   margin: 5%;
   font-size: large;
-  text-align: justify;
+  min-width: 45%;
 }
 
 span {
@@ -249,59 +247,27 @@ span {
 }
 
 .poke-name {
-  display: inline;
   color: #00ffff;
   font-size: 1.17em;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  margin-left: 3vw;
   font-weight: bold;
-}
-
-.poke-type {
-  margin-left: 3.8vw;
-}
-
-.poke-subtype {
-  margin-left: 2.2vw;
 }
 
 hr {
   width: 100%;
-  margin: 2vh 0;
   height: 2px;
   background-color: #000;
   border: none;
 }
 
-.prop-block {
-  display: flex;
-}
-
-.prop-block__title {
-  margin-right: 2.5vw;
-}
-
-.prop-block__col {
-  flex-direction: column;
-  align-items: flex-end;
-}
-
 .prop-block__col-block {
   display: block;
   color: #ffd700;
-  margin-bottom: 1vh;
-}
-
-.res-title {
-  margin-right: 1.5vw;
-}
-.cost-title {
-  margin-right: 1.2vw;
+  margin-bottom: 10px;
 }
 
 .attacks {
   color: #7fffd4;
+  text-align: justify;
 }
 
 .attack-num {
@@ -330,7 +296,6 @@ hr {
 
 .poke-evolvesFrom {
   color: #00ff7f;
-  margin-left: 0.8vw;
 }
 
 .pagination {
@@ -362,6 +327,26 @@ hr {
   box-shadow: 1px 1px 2px#000;
 }
 
+.link {
+  display: inline-block;
+}
+
+#error {
+  color: #fff;
+  font-size: x-large;
+  margin-top: 30%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+
+.subgrid {
+  display: grid;
+  grid-template-columns: max-content;
+}
+
 @media (max-width: 500px) {
   .container,
   .card-content {
@@ -373,6 +358,10 @@ hr {
   .main-content {
     flex-direction: column;
     align-items: center;
+  }
+
+  .card-content {
+    min-height: 100vh;
   }
 
   .main-content {
@@ -388,6 +377,7 @@ hr {
 
   .main-section {
     min-width: 100%;
+    min-height: 100vh;
     margin: auto;
     box-shadow: 3px 2px 5px #000;
   }
@@ -417,17 +407,12 @@ hr {
     margin-left: 0;
   }
 
-  .pokemon-properties {
-    align-items: center;
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
   }
 }
 
-.link {
-  display: inline-block;
-}
-
-#error {
-  color: #fff;
-  font-size: x-large;
-  margin-top: 30%;
+.marg-bot {
+  margin-bottom: 3vh;
 }

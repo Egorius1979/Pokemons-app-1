@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 
-const VALID_LOGIN = 'kode@kode.ru';
-const VALID_PASSWORD = 'Enk0deng';
+const VALID_LOGIN = 'poke@poke.ru';
+const VALID_PASSWORD = 'Hdnc18pEf';
 
 const Auth = () => {
   const [login, setLogin] = useState('');
