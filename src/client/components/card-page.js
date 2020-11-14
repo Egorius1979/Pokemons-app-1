@@ -25,17 +25,17 @@ const PokemonCard = () => {
           <img src={pokemonCard.imageUrlHiRes} alt={pokemonCard.name} className='pokemon-img' />
         )}
         <div className='pokemon-properties'>
-          <p className='grid marg-bot'>
+          <p className='grid'>
             Name: <span className='poke-name'>"{pokemonCard.name}"</span>
           </p>
           {pokemonCard.types && (
-            <p className='grid marg-bot'>
+            <p className='grid'>
               Type:
               <span>"{pokemonCard.types}"</span>
             </p>
           )}
           {pokemonCard.subtype && (
-            <p className='grid marg-bot'>
+            <p className='grid'>
               SubType:
               <span>"{pokemonCard.subtype}"</span>
             </p>
@@ -44,7 +44,7 @@ const PokemonCard = () => {
           {pokemonCard.attacks && (
             <div className='grid'>
               <p>Damage:</p>
-              <p className='subgrid'>
+              <p>
                 {pokemonCard.attacks.map((it) => (
                   <span key={it.name} className='prop-block__col-block'>
                     "{it.name}" <span className='damage-color'> {it.damage ? `(${it.damage})` : ''}</span>
@@ -56,7 +56,7 @@ const PokemonCard = () => {
           {pokemonCard.attacks && (
             <div className='grid'>
               <p>Attack cost:</p>
-              <p className='subgrid'>
+              <p>
                 {pokemonCard.attacks.map((it) => (
                   <span key={it.name} className='prop-block__col-block'>
                     "{it.name}"{' '}
@@ -69,7 +69,7 @@ const PokemonCard = () => {
           {pokemonCard.resistances && (
             <div className='grid'>
               <p>Resistance:</p>
-              <p className='subgrid'>
+              <p>
                 {pokemonCard.resistances.map((it) => (
                   <span key={it.type} className='prop-block__col-block'>
                     "{it.type}" <span className='res-color'>{it.value ? `(${it.value})` : ''}</span>

@@ -17,34 +17,6 @@ code {
   margin-top: 15px;
 }
 
-@media (min-width: 575.98px) {
-  .container {
-    max-width: 570px;
-    margin: auto;
-    margin-top: 5px;
-    padding: 0;
-  }
-}
-
-@media (min-width: 767.98px) {
-  .container {
-    max-width: 720px;
-  }
-}
-
-@media (min-width: 991.98px) {
-  .container {
-    max-width: 960px;
-    margin-top: 15px;
-  }
-}
-
-@media (min-width: 1199.98px) {
-  .container {
-    max-width: 1140px;
-  }
-}
-
 .form {
   display: block;
   padding: 25px;
@@ -257,12 +229,13 @@ hr {
   height: 2px;
   background-color: #000;
   border: none;
+  margin: 30px 0;
 }
 
 .prop-block__col-block {
   display: block;
   color: #ffd700;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .attacks {
@@ -339,12 +312,40 @@ hr {
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 1fr 2.5fr;
+  margin-bottom: 15px;
 }
 
-.subgrid {
-  display: grid;
-  grid-template-columns: max-content;
+.grid p {
+  margin: 0;
+}
+
+@media (min-width: 575.98px) {
+  .container {
+    max-width: 570px;
+    margin: auto;
+    margin-top: 5px;
+    padding: 0;
+  }
+}
+
+@media (min-width: 767.98px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 991.98px) {
+  .container {
+    max-width: 960px;
+    margin-top: 15px;
+  }
+}
+
+@media (min-width: 1199.98px) {
+  .container {
+    max-width: 1140px;
+  }
 }
 
 @media (max-width: 500px) {
@@ -411,8 +412,4 @@ hr {
     display: grid;
     grid-template-columns: 1fr 2fr;
   }
-}
-
-.marg-bot {
-  margin-bottom: 3vh;
 }
