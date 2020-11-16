@@ -24,9 +24,10 @@ const Check = () => {
         e.preventDefault();
         if (+number === VALID_NUMBER) {
           dispatch(setLoggedIn(true));
+        } else {
+          setNumber('');
+          setError('Сосредоточьтесь!');
         }
-        setNumber('');
-        setError('Сосредоточьтесь!');
       }}
     >
       <label htmlFor='login-check' />
