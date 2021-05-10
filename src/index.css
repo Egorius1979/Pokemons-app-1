@@ -413,3 +413,7 @@ hr {
     grid-template-columns: 1fr 2fr;
   }
 }
+
+.not-at-all {
+  visibility: hidden;
+}
