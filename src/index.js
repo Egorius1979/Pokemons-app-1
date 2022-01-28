@@ -15,16 +15,28 @@ ReactDOM.render(
     <Provider store={store}>
       <BrowserRouter>
         <Switch>
-          <Route exact path='/'>
-            <Redirect to='/cards/1' />
+          <Route exact path="/">
+            <Redirect to="/cards/1" />
           </Route>
-          <Route exact path='/login' component={Auth} />
-          <Route exact path='/login/check' component={Check} />
-          <Route exact path='/cards/:currentPage' component={Main} />
-          <Route exact path='/cards/:typeSelected/:currentPage' component={Main} />
-          <Route expact path='/cards//:subtypeSelected/:currentPage' component={Main} />
-          <Route exact path='/cards/:typeSelected/:subtypeSelected/:currentPage' component={Main} />
-          <Route exact path='/pokemon/:pokemonId' component={PokemonCard} />
+          <Route exact path="/login" component={Auth} />
+          <Route exact path="/login/check" component={Check} />
+          <Route exact path="/cards/:currentPage" component={Main} />
+          <Route
+            exact
+            path="/cards/:typeSelected/:currentPage"
+            component={Main}
+          />
+          <Route
+            exact
+            path="/cards//:subtypeSelected/:currentPage"
+            component={Main}
+          />
+          <Route
+            exact
+            path="/cards/:typeSelected/:subtypeSelected/:currentPage"
+            component={Main}
+          />
+          <Route exact path="/pokemon/:pokemonId" component={PokemonCard} />
           <Route component={() => <NotFound />} />
         </Switch>
       </BrowserRouter>
