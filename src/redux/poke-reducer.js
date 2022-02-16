@@ -7,6 +7,7 @@ const SET_SUBTYPES = 'GET_SUBTYPES';
 const GET_POKEMON_CARD = 'GET_POKEMON_CARD';
 const SET_PAGES_AMOUNT = 'SET_PAGES_AMOUNT';
 const SET_LOADING_STATUS = 'SET_LOADING_STATUS';
+const SET_ERROR = 'SET_ERROR';
 
 const initialState = {
   isLoggedIn: true,
@@ -18,6 +19,7 @@ const initialState = {
   pagesAmount: 0,
   isInitialRequestDone: false,
   isLoading: false,
+  error: false,
 };
 
 export default (state = initialState, action) => {
@@ -30,6 +32,7 @@ export default (state = initialState, action) => {
         cards: action.cards,
         isInitialRequestDone: true,
         isLoading: false,
+        error: false,
       };
     case SET_TYPES:
       return { ...state, types: action.types };
@@ -41,6 +44,8 @@ export default (state = initialState, action) => {
       return { ...state, pagesAmount: action.value };
     case SET_LOADING_STATUS:
       return { ...state, isLoading: action.value };
+    case SET_ERROR:
+      return { ...state, error: action.error };
 
     default:
       return state;
@@ -53,9 +58,11 @@ export function setLoggedIn(isloggedIn) {
 
 export function getCards(typeSelected = '', subtypeSelected = '') {
   return (dispatch) => {
-    axios(`https://api.pokemontcg.io/v1/cards?types=${typeSelected}&subtype=${subtypeSelected}`).then((res) =>
-      dispatch({ type: GET_CARDS, cards: res.data.cards })
-    );
+    axios(
+      `https://api.pokemontcg.io/v1/cards?types=${typeSelected}&subtype=${subtypeSelected}`
+    )
+      .then((res) => dispatch({ type: GET_CARDS, cards: res.data.cards }))
+      .catch((e) => dispatch({ type: SET_ERROR, error: true }));
   };
 }
 
