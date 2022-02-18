@@ -84,10 +84,13 @@ export function getFilters() {
 }
 
 export function getPokemonCard(pokemonId) {
-  return (dispatch) => {
-    axios(`https://api.pokemontcg.io/v1/cards?id=${pokemonId}`).then((res) =>
-      dispatch({ type: GET_POKEMON_CARD, card: res.data.cards[0] })
-    );
+  return (dispatch, getState) => {
+    const currentPoke = getState().poke.pokemonCard.id;
+    if (pokemonId !== currentPoke) {
+      axios(`https://api.pokemontcg.io/v1/cards?id=${pokemonId}`).then((res) =>
+        dispatch({ type: GET_POKEMON_CARD, card: res.data.cards[0] })
+      );
+    }
   };
 }
 

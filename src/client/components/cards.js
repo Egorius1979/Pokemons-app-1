@@ -46,7 +46,8 @@ const Cards = () => {
       }>
       {currentCards.map((it) => {
         return (
-          !isLoading && (
+          !isLoading &&
+          !error && (
             <div
               key={it.id}
               className={`pokemon-card ${
@@ -65,7 +66,11 @@ const Cards = () => {
           )
         );
       })}
-      {counter < currentCards.length && !error && <Loader />}
+      {counter < currentCards.length && !error && (
+        <div className="absolute">
+          <Loader />
+        </div>
+      )}
       {error && (
         <p className="error">
           Ошибка сосединения с сервером API. Превышен лимит запросов.

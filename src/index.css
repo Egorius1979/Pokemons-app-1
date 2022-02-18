@@ -195,7 +195,7 @@ select:hover {
   width: 200px;
 }
 
-.pokemon-img {
+.poke-img {
   width: 35%;
   margin: 5%;
   box-shadow: 10px 9px 10px #000;
@@ -418,4 +418,16 @@ hr {
 
 .not-at-all {
   visibility: hidden;
+}
+
+.error {
+  margin-top: 20vh;
+  text-align: center;
+  font-size: large;
+  color: #fff;
+}
+
+.absolute {
+  position: absolute;
+  top: 50%;
 }

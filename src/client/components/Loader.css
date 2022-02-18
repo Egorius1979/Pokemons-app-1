@@ -30,15 +30,3 @@
     opacity: 0;
   }
 }
-
-.absolute {
-  position: absolute;
-  top: 50%;
-}
-
-.error {
-  margin-top: 20vh;
-  text-align: center;
-  font-size: large;
-  color: #fff;
-}

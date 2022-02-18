@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useParams, Redirect } from "react-router-dom";
-import { getPokemonCard } from "../../redux/poke-reducer";
-import Header from "./header";
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useParams, Redirect } from 'react-router-dom';
+import { getPokemonCard } from '../../redux/poke-reducer';
+import Header from './header';
+import loader from './loader2.gif';
 
 const PokemonCard = () => {
   const { pokemonId } = useParams();
-  const [imageLoaded, setImageLoaded] = useState(false);
   const { pokemonCard, isLoggedIn } = useSelector((s) => s.poke);
   const dispatch = useDispatch();
 
@@ -14,22 +14,21 @@ const PokemonCard = () => {
     dispatch(getPokemonCard(pokemonId));
   }, [pokemonId, dispatch]);
 
-  if (!isLoggedIn && !localStorage.getItem("poke-token")) {
+  if (!isLoggedIn && !localStorage.getItem('poke-token')) {
     return <Redirect to="/login" />;
   }
 
   return (
     <div className="container">
       <Header />
-      <div className='card-content'>
-        {pokemonId === pokemonCard.id && (
-          <img
-            src={pokemonCard.imageUrlHiRes}
-            alt={pokemonCard.name}
-            className={`pokemon-img ${imageLoaded ? "" : "not-at-all"}`}
-            onLoad={() => setImageLoaded(true)}
-          />
-        )}
+      <div className="card-content">
+        <img
+          src={
+            pokemonId === pokemonCard.id ? pokemonCard.imageUrlHiRes : loader
+          }
+          alt={pokemonCard.name}
+          className="poke-img"
+        />
         <div className="pokemon-properties">
           <p className="grid">
             Name: <span className="poke-name">"{pokemonCard.name}"</span>
@@ -53,10 +52,10 @@ const PokemonCard = () => {
               <p>
                 {pokemonCard.attacks.map((it) => (
                   <span key={it.name} className="prop-block__col-block">
-                    "{it.name}"{" "}
+                    "{it.name}"{' '}
                     <span className="damage-color">
-                      {" "}
-                      {it.damage ? `(${it.damage})` : ""}
+                      {' '}
+                      {it.damage ? `(${it.damage})` : ''}
                     </span>
                   </span>
                 ))}
@@ -69,11 +68,11 @@ const PokemonCard = () => {
               <p>
                 {pokemonCard.attacks.map((it) => (
                   <span key={it.name} className="prop-block__col-block">
-                    "{it.name}"{" "}
+                    "{it.name}"{' '}
                     <span className="cost-color">
                       {it.convertedEnergyCost
                         ? `(${it.convertedEnergyCost})`
-                        : ""}
+                        : ''}
                     </span>
                   </span>
                 ))}
@@ -86,9 +85,9 @@ const PokemonCard = () => {
               <p>
                 {pokemonCard.resistances.map((it) => (
                   <span key={it.type} className="prop-block__col-block">
-                    "{it.type}"{" "}
+                    "{it.type}"{' '}
                     <span className="res-color">
-                      {it.value ? `(${it.value})` : ""}
+                      {it.value ? `(${it.value})` : ''}
                     </span>
                   </span>
                 ))}
@@ -107,8 +106,8 @@ const PokemonCard = () => {
             {(pokemonCard.attacks || []).map((it, index) => (
               <p className="attacks" key={index}>
                 <span className="attack-num">
-                  {it.text ? `Attack ${index + 1}:` : ""}
-                </span>{" "}
+                  {it.text ? `Attack ${index + 1}:` : ''}
+                </span>{' '}
                 {it.text}
               </p>
             ))}
